@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+
+    <title>obolystitelynosty</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Rubik:300,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/vendor/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="css/vendor/owl.theme.default.min.css"/>
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!--[if lt IE 9]>
+    <script src="js/vendor/html5shiv.min.js"></script>
+    <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://use.fontawesome.com/9b701ba3c8.js"></script>
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/vendor/owl.carousel.min.js"></script>
+</head>
+<body>
+
+<header class="header-area">
+
+    <div class="bottom-header">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="main-menu">
+                        <nav class="navbar navbar-expand-lg">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#gazetteMenu" aria-controls="gazetteMenu" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i> Menu</button>
+                            <div class="collapse navbar-collapse" id="gazetteMenu">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="blog.html">Artículo</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="contact.html">Contactos</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="terms.html">Términos y condiciones</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="policy.html">Política de privacidad</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<style>
+    .top-header {
+        position: relative;
+        z-index: 1;
+        height: 70px;
+        background-color: #1d1d1d;
+    }
+
+    .breaking-news-title {
+        font-size: 18px;
+        color: #fff;
+        text-transform: uppercase;
+        margin-bottom: 0;
+    }
+
+    #breakingNewsTicker.ticker {
+        width: 100%;
+        text-align: left;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #breakingNewsTicker.ticker ul {
+        width: 100%;
+        position: relative;
+    }
+
+    #breakingNewsTicker.ticker ul li {
+        display: none;
+        width: 100%;
+    }
+
+    #breakingNewsTicker.ticker ul li a {
+        color: #fff;
+        font-size: 14px;
+    }
+
+    #breakingNewsTicker.ticker ul li a:hover {
+        color: #ff084e;
+    }
+
+    #stockNewsTicker.ticker {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #stockNewsTicker.ticker ul {
+        width: 100%;
+        position: relative;
+    }
+
+    #stockNewsTicker.ticker ul li {
+        display: none;
+        width: 100%;
+        text-align: right;
+    }
+
+    #stockNewsTicker.ticker ul li a {
+        color: #fff;
+        font-size: 14px;
+    }
+
+    .single-stock-report .stock-values span {
+        padding-right: 20px;
+        color: #fff;
+        font-weight: 300;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    .single-stock-report .stock-values span:last-child {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .single-stock-report .stock-index h4 {
+        color: #fff;
+        margin-bottom: 0;
+    }
+
+    .single-stock-report {
+        border-right: 2px solid rgba(255, 255, 255, 0.05);
+        margin-right: 20px;
+        display: inline-block;
+        text-align: left;
+    }
+
+    .single-stock-report:last-child {
+        border-right: none;
+        margin-right: 0;
+    }
+
+    .single-stock-report .stock-index.minus-index h4,
+    .single-stock-report .stock-index.plus-index h4 {
+        color: #ff0303;
+        position: relative;
+        z-index: 1;
+        padding-left: 30px;
+    }
+
+    .single-stock-report .stock-index.minus-index h4:before,
+    .single-stock-report .stock-index.plus-index h4:before {
+        content: '\e688';
+        color: #ff0303;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: -10px;
+        font-family: 'Pe-icon-7-stroke';
+        font-size: 44px;
+        line-height: 32px;
+    }
+
+    .single-stock-report .stock-index.plus-index h4 {
+        color: #30ca00;
+    }
+
+    .single-stock-report .stock-index.plus-index h4:before {
+        content: '\e682';
+        color: #30ca00;
+    }
+
+    /* :: 4.2.0 Middle Header Area CSS */
+
+    .middle-header {
+        position: relative;
+        z-index: 1;
+        height: 160px;
+        background-color: #fff;
+    }
+
+    /* :: 4.3.0 Bottom Header Area CSS */
+
+    .bottom-header {
+        width: 100%;
+        height: 55px;
+        border-bottom: 1px solid #e4e4e4;
+    }
+
+    .main-menu .navbar.navbar-expand-lg {
+        padding: 0;
+    }
+
+    .main-menu .navbar.navbar-expand-lg .nav-link {
+        color: rgba(0, 0, 0, 0.75);
+        text-transform: uppercase;
+    }
+
+    .main-menu .navbar.navbar-expand-lg .nav-item.active .nav-link,
+    .main-menu .navbar.navbar-expand-lg .nav-link:hover {
+        color: #ff0303;
+    }
+
+    .main-menu .dropdown-menu.show {
+        border: none;
+        box-shadow: 2px 5px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .main-menu .dropdown-item {
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+
+    .main-menu .dropdown-item:hover {
+        color: #ff0303;
+    }
+
+    .main-menu #searchbtn i {
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .header-search-form form input {
+        width: 700px;
+        height: 35px;
+        padding: 0 15px;
+        border: 1px solid #ebebeb;
+        font-size: 12px;
+        font-style: italic;
+        border-radius: 4px;
+    }
+
+    .header-search-form {
+        display: none;
+        -webkit-transition-duration: 500ms;
+        transition-duration: 500ms;
+    }
+
+    .search-form-on .header-search-form {
+        display: block;
+    }
+
+    .search-form-on .navbar-nav {
+        display: none !important;
+    }
+
+    .collapse.in {
+        display: block;
+    }
+
+    @media only screen and (min-width: 320px) and (max-width: 992px) {
+        #gazetteMenu {
+            padding: 30px;
+            background-color: #f4f2f8;
+            z-index: 1002;
+        }
+    }
+</style>
+
+<section class="all_post section_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="row">
+                    
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="single_post post_1">
+                            <div class="single_post_img">
+                                <img src="./assets/images/jamie-street-tb5a-qti6xg-unsplash.jpg" alt="">
+                            </div>
+                            <div class="single_post_text text-center">
+                                <a href="yVos1YSS3giYgSm8ppb.html"><h5> la perfección</h5></a>
+                                <a href="yVos1YSS3giYgSm8ppb.html"><h2>5 mejores de la planta basado en fuentes de omega-3 los ácidos grasos</h2></a>
+                                <p>10.08.2021</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="single_post post_1">
+                            <div class="single_post_img">
+                                <img src="./assets/images/christopher-campbell-kfcdflbu6za-unsplash.jpg" alt="">
+                            </div>
+                            <div class="single_post_text text-center">
+                                <a href="09a6db30dd32f4d7628ec74c694b8739.html"><h5> la perfección</h5></a>
+                                <a href="09a6db30dd32f4d7628ec74c694b8739.html"><h2>Cómo bajar de peso rápido?</h2></a>
+                                <p>10.08.2021</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="single_post post_1">
+                            <div class="single_post_img">
+                                <img src="./assets/images/nathan-dumlao-xt4yzuiprto-unsplash.jpg" alt="">
+                            </div>
+                            <div class="single_post_text text-center">
+                                <a href="Fz4EzKPj1nw.html"><h5> la perfección</h5></a>
+                                <a href="Fz4EzKPj1nw.html"><h2>Un vaso de agua en lugar de la medicina</h2></a>
+                                <p>10.08.2021</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .section_padding {
+        padding: 140px 0px;
+    }
+
+    .post_1 {
+        position: relative;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .post_1 .single_post_text {
+        padding: 40px 10px;
+        display: inline-block;
+        text-align: center;
+        background-color: #fff;
+        margin-top: -50px;
+        max-width: 320px;
+    }
+
+    .post_1 .single_post_text a h5 {
+        color: #fc4600;
+        margin-bottom: 17px;
+    }
+
+    .post_1 .single_post_text h2 {
+        margin-bottom: 21px;
+        font-size: 24px;
+    }
+
+    p {
+        color: #888888;
+        font-family: "Lora", serif;
+        line-height: 1.929;
+        font-size: 15px;
+        margin-bottom: 0px;
+        color: #646464;
+    }
+</style>
+
+<div class="foot-nav">
+    <div class="container">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="contact.html">Contactos</a></li>
+            <li><a href="terms.html">Términos y condiciones</a></li>
+            <li><a href="policy.html">Política de privacidad</a></li>
+            <div class="clearfix"></div>
+        </ul>
+    </div>
+</div>
+
+<div class="copyright">
+    <div class="container">
+        <p>©All rights reserved</p>
+    </div>
+</div>
+
+<style>
+    .foot-nav ul li {
+        display: inline-block;
+        float: left;
+    }
+
+    .foot-nav li a {
+        color: #fff;
+        font-size: 1em;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    .foot-nav {
+        background: #fa4b2a;
+    }
+
+    .foot-nav ul {
+        margin: 0;
+        padding: 0.65em 0;
+    }
+
+    .foot-nav li a {
+        color: #fff;
+        font-size: 0.95em;
+        padding: 0.7em 1.5em;
+        text-decoration: none;
+        font-weight: 500;
+        text-transform: uppercase;
+        border-right: 1px solid rgba(255, 255, 255, 0.32) ! important;
+    }
+
+    .copyright {
+        background: #fece14;
+        padding: 1em 0;
+        text-align: center;
+    }
+
+    .copyright p {
+        margin-bottom: 0;
+    }
+</style>

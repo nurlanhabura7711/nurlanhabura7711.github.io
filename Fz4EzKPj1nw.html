@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+
+    <title>obolystitelynosty</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Rubik:300,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/vendor/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="css/vendor/owl.theme.default.min.css"/>
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!--[if lt IE 9]>
+    <script src="js/vendor/html5shiv.min.js"></script>
+    <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://use.fontawesome.com/9b701ba3c8.js"></script>
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/vendor/owl.carousel.min.js"></script>
+</head>
+<body>
+
+<header class="header-area">
+
+    <div class="bottom-header">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="main-menu">
+                        <nav class="navbar navbar-expand-lg">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#gazetteMenu" aria-controls="gazetteMenu" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i> Menu</button>
+                            <div class="collapse navbar-collapse" id="gazetteMenu">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="blog.html">Artículo</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="contact.html">Contactos</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="terms.html">Términos y condiciones</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="policy.html">Política de privacidad</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<style>
+    .top-header {
+        position: relative;
+        z-index: 1;
+        height: 70px;
+        background-color: #1d1d1d;
+    }
+
+    .breaking-news-title {
+        font-size: 18px;
+        color: #fff;
+        text-transform: uppercase;
+        margin-bottom: 0;
+    }
+
+    #breakingNewsTicker.ticker {
+        width: 100%;
+        text-align: left;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #breakingNewsTicker.ticker ul {
+        width: 100%;
+        position: relative;
+    }
+
+    #breakingNewsTicker.ticker ul li {
+        display: none;
+        width: 100%;
+    }
+
+    #breakingNewsTicker.ticker ul li a {
+        color: #fff;
+        font-size: 14px;
+    }
+
+    #breakingNewsTicker.ticker ul li a:hover {
+        color: #ff084e;
+    }
+
+    #stockNewsTicker.ticker {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #stockNewsTicker.ticker ul {
+        width: 100%;
+        position: relative;
+    }
+
+    #stockNewsTicker.ticker ul li {
+        display: none;
+        width: 100%;
+        text-align: right;
+    }
+
+    #stockNewsTicker.ticker ul li a {
+        color: #fff;
+        font-size: 14px;
+    }
+
+    .single-stock-report .stock-values span {
+        padding-right: 20px;
+        color: #fff;
+        font-weight: 300;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    .single-stock-report .stock-values span:last-child {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .single-stock-report .stock-index h4 {
+        color: #fff;
+        margin-bottom: 0;
+    }
+
+    .single-stock-report {
+        border-right: 2px solid rgba(255, 255, 255, 0.05);
+        margin-right: 20px;
+        display: inline-block;
+        text-align: left;
+    }
+
+    .single-stock-report:last-child {
+        border-right: none;
+        margin-right: 0;
+    }
+
+    .single-stock-report .stock-index.minus-index h4,
+    .single-stock-report .stock-index.plus-index h4 {
+        color: #ff0303;
+        position: relative;
+        z-index: 1;
+        padding-left: 30px;
+    }
+
+    .single-stock-report .stock-index.minus-index h4:before,
+    .single-stock-report .stock-index.plus-index h4:before {
+        content: '\e688';
+        color: #ff0303;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: -10px;
+        font-family: 'Pe-icon-7-stroke';
+        font-size: 44px;
+        line-height: 32px;
+    }
+
+    .single-stock-report .stock-index.plus-index h4 {
+        color: #30ca00;
+    }
+
+    .single-stock-report .stock-index.plus-index h4:before {
+        content: '\e682';
+        color: #30ca00;
+    }
+
+    /* :: 4.2.0 Middle Header Area CSS */
+
+    .middle-header {
+        position: relative;
+        z-index: 1;
+        height: 160px;
+        background-color: #fff;
+    }
+
+    /* :: 4.3.0 Bottom Header Area CSS */
+
+    .bottom-header {
+        width: 100%;
+        height: 55px;
+        border-bottom: 1px solid #e4e4e4;
+    }
+
+    .main-menu .navbar.navbar-expand-lg {
+        padding: 0;
+    }
+
+    .main-menu .navbar.navbar-expand-lg .nav-link {
+        color: rgba(0, 0, 0, 0.75);
+        text-transform: uppercase;
+    }
+
+    .main-menu .navbar.navbar-expand-lg .nav-item.active .nav-link,
+    .main-menu .navbar.navbar-expand-lg .nav-link:hover {
+        color: #ff0303;
+    }
+
+    .main-menu .dropdown-menu.show {
+        border: none;
+        box-shadow: 2px 5px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .main-menu .dropdown-item {
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+
+    .main-menu .dropdown-item:hover {
+        color: #ff0303;
+    }
+
+    .main-menu #searchbtn i {
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .header-search-form form input {
+        width: 700px;
+        height: 35px;
+        padding: 0 15px;
+        border: 1px solid #ebebeb;
+        font-size: 12px;
+        font-style: italic;
+        border-radius: 4px;
+    }
+
+    .header-search-form {
+        display: none;
+        -webkit-transition-duration: 500ms;
+        transition-duration: 500ms;
+    }
+
+    .search-form-on .header-search-form {
+        display: block;
+    }
+
+    .search-form-on .navbar-nav {
+        display: none !important;
+    }
+
+    .collapse.in {
+        display: block;
+    }
+
+    @media only screen and (min-width: 320px) and (max-width: 992px) {
+        #gazetteMenu {
+            padding: 30px;
+            background-color: #f4f2f8;
+            z-index: 1002;
+        }
+    }
+</style>
+
+<section class="blog-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="blog-post single-post">
+                    <img src="./assets/images/jamie-street-tb5a-qti6xg-unsplash.jpg" alt="">
+                    <div class="post-date">22.08.2021</div>
+                    <h3>5 mejores de la planta basado en fuentes de omega-3 los ácidos grasos</h3>
+                    <div class="post-metas">
+                        <div class="post-meta">Inés</div>
+                    </div>
+                    <div>
+                         <strong></strong> Omega-3 son grasas poliinsaturadas, que pertenecen a los llamados ácidos grasos esenciales. Que tiene este nombre debido a que son necesarios para el normal funcionamiento del cuerpo. Sin embargo, nuestro cuerpo no puede producir por su propia cuenta. Por lo tanto, debemos asegurarnos de que son abastecidos con alimentos. ¿Cuáles son los beneficios de los ácidos grasos omega-3?esenciales para el normal funcionamiento del sistema cardiovascular.Reducen el riesgo de complicaciones asociadas con las enfermedades cardiovasculares.Los ácidos grasos poliinsaturados omega-3 ayuda a reducir los niveles de colesterol y a mejorar la función del sistema cardiovascular. Esto reduce el riesgo de ataque al corazón, accidente cerebrovascular, y las complicaciones cardiovasculares. reducir el riesgo de colesterol malo y la acumulación de placa en las paredes de los vasos sanguíneos.Mejoran la función del tracto gastrointestinal.Gracias a los ácidos grasos beneficiosos, los probióticos que normalmente entran en el cuerpo a través del tracto digestivo son normales y siguen haciéndolo, limpieza de los intestinos y ayudar a restablecer su equilibrio.8 plantas que son excelentes para la piel sana. Mejora el funcionamiento del cerebro.Los probióticos son esenciales para el funcionamiento normal del cerebro. Ellos proporcionan con aminoácidos, vitaminas, minerales y magnesio. El uso de probióticos reduce el riesgo de enfermedades degenerativas. enfermedades que afectan el cerebro.Reduce el colesterol.Las placas de colesterol, que son causa común de duro de placas en las paredes de los vasos sanguíneos, son depósitos que bloquean el flujo de sangre y el colesterol entre las células. Al reducir la cantidad de colesterol en la sangre, los omega-3 normalizar el proceso de coagulación de la sangre y prevenir la aterosclerosis.Esto es, si se toman correctamente y correctamente. Por desgracia, son raras entre todos los productos, que también es responsable por su mal gusto: los alimentos grasos, edulcorantes, colorantes artificiales y conservantes.La leche de almendras y sus beneficios.Fortalece el corazón y el estreñimiento.El omega-3 contenidos en la leche están en él, nos proporcionan ácidos grasos omega-3, pero no a la exclusión de otras grasas poliinsaturadas. Esto se hace con el fin de no dañar el corazón y el estreñimiento.4 bebidas para la pérdida de peso, desintoxicación y la salud.Protege la piel.Los antioxidantes en la leche y en algunos de sus productos a luchar contra los signos del envejecimiento. El resultado de su trabajo es que la piel se vuelve más elástica. El más a menudo que usted bebe la leche, más se fortalece sus defensas.8 secretos de la longevidad de los Japoneses. Ayuda a perder peso.Los ácidos grasos poliinsaturados contenido en la leche regular el metabolismo. Son necesarios para quemar el exceso de grasa. Este artículo es sólo para fines informativos. Por favor, consulte a su médico antes de utilizar esta información.Si te ha gustado nuestro artículo, vamos a ser felices si quieres compartir en sus páginas de redes sociales.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 sidebar">
+                <div class="sb-widget">
+                    <h2 class="sb-title">Recientes puestos</h2>
+                    <div class="latest-news-widget">
+                        
+                        <a href="yVos1YSS3giYgSm8ppb.html" class="ln-item">
+                            <img src="./assets/images/jamie-street-tb5a-qti6xg-unsplash.jpg" alt="">
+                            <div class="ln-text">
+                                <div class="ln-date">22.08.2021</div>
+                                <h6>5 mejores de la planta basado en fuentes...</h6>
+                                <div class="ln-metas">
+                                    <div class="ln-meta">Inés</div>
+                                </div>
+                            </div>
+                        </a>
+                        
+
+                        <a href="09a6db30dd32f4d7628ec74c694b8739.html" class="ln-item">
+                            <img src="./assets/images/christopher-campbell-kfcdflbu6za-unsplash.jpg" alt="">
+                            <div class="ln-text">
+                                <div class="ln-date">22.08.2021</div>
+                                <h6>Cómo bajar de peso rápido?</h6>
+                                <div class="ln-metas">
+                                    <div class="ln-meta">Inés</div>
+                                </div>
+                            </div>
+                        </a>
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .spad {
+        padding-top: 106px;
+        padding-bottom: 106px;
+    }
+
+    .blog-post.single-post {
+        margin-bottom: 0;
+    }
+
+    .blog-post.single-post p {
+        margin-bottom: 30px;
+    }
+
+    .comments {
+        padding-top: 50px;
+    }
+
+    .comments h5 {
+        margin-bottom: 45px;
+    }
+
+    .comments-list {
+        list-style: none;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .comments-list li {
+        margin-bottom: 40px;
+    }
+
+    .comments-list img {
+        float: left;
+        margin-right: 28px;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        min-width: auto;
+    }
+
+    .comments-list .comment-text {
+        overflow: hidden;
+    }
+
+    .comments-list .comment-text h6 {
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+
+    .comments-list .comment-text .reply {
+        padding-left: 7px;
+        font-size: 14px;
+        color: #10ddb4;
+    }
+
+    .comments-list .comment-text .comment-date {
+        font-size: 12px;
+        font-weight: 700;
+        color: #a5a4a4;
+        margin-bottom: 15px;
+    }
+
+    .comments-list .comment-text p {
+        margin-bottom: 0;
+    }
+
+    .comment-form input,
+    .comment-form textarea {
+        width: 100%;
+        height: 53px;
+        padding: 0 34px;
+        margin-bottom: 34px;
+        font-size: 14px;
+        font-style: italic;
+        color: #242424;
+        border: none;
+        border-bottom: 3px solid transparent;
+    }
+
+    .comment-form input:focus,
+    .comment-form textarea:focus {
+        border-bottom-color: #10ddb4;
+    }
+
+    .comment-form textarea {
+        height: 240px;
+        resize: none;
+        padding: 20px 34px 15px;
+        margin-bottom: 31px;
+    }
+
+    .blog-section .blog-posts {
+        margin-bottom: -70px;
+    }
+
+    .blog-post {
+        margin-bottom: 70px;
+    }
+
+    .blog-post img {
+        margin-bottom: 34px;
+        min-width: 100%;
+    }
+
+    .blog-post .post-date {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 3px 16px;
+        margin-bottom: 25px;
+        background: #10ddb4;
+    }
+
+    .blog-post h3 {
+        margin-bottom: 10px;
+    }
+
+    .blog-post h4 {
+        margin-bottom: 10px;
+    }
+
+    .blog-post .post-metas {
+        margin-bottom: 30px;
+    }
+
+    .blog-post .post-metas .post-meta {
+        position: relative;
+        display: inline-block;
+        color: #8c8c8c;
+        font-size: 14px;
+        padding-right: 15px;
+        margin-right: 14px;
+        margin-bottom: 5px;
+    }
+
+    .blog-post .post-metas .post-meta:after {
+        position: absolute;
+        content: "|";
+        right: 0;
+        top: 0;
+        color: #8c8c8c;
+        font-size: 14px;
+    }
+
+    .blog-post .post-metas .post-meta:last-child {
+        margin-right: 0;
+        padding-right: 0;
+    }
+
+    .blog-post .post-metas .post-meta:last-child:after {
+        display: none;
+    }
+
+    .blog-post .post-metas a {
+        color: #ffea00;
+    }
+
+    .blog-post .read-more {
+        font-size: 14px;
+        font-weight: 700;
+        color: #10ddb4;
+    }
+
+    .blog-post.featured-post,
+    .blog-post.review-post,
+    .blog-post.single-post {
+        margin-bottom: 80px;
+    }
+
+    .blog-post.featured-post p,
+    .blog-post.review-post p,
+    .blog-post.single-post p {
+        margin-bottom: 40px;
+    }
+
+    .blog-post.featured-post .post-metas a,
+    .blog-post.review-post .post-metas a,
+    .blog-post.single-post .post-metas a {
+        color: #10ddb4;
+    }
+
+    .blog-post.review-post .post-metas {
+        margin-bottom: 5px;
+    }
+
+    .blog-post.review-post .rating {
+        font-size: 17px;
+        color: #ffd200;
+        margin-bottom: 30px;
+    }
+
+    .blog-post.review-post .rating i {
+        display: inline-block;
+        margin-right: 4px;
+    }
+
+    .sb-widget {
+        margin-bottom: 75px;
+    }
+
+    .sb-widget:last-child {
+        margin-bottom: 0;
+    }
+
+    .sb-widget .sb-title {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 60px;
+    }
+
+    .sb-widget .sb-search input {
+        width: 100%;
+        height: 53px;
+        font-size: 14px;
+        font-style: italic;
+        padding: 0 32px;
+        border: none;
+        border-bottom: 3px solid #10ddb4;
+    }
+
+    .sb-cata-list {
+        list-style: none;
+    }
+
+    .sb-cata-list li {
+        display: block;
+        overflow: hidden;
+        margin-bottom: 13px;
+    }
+
+    .sb-cata-list li a {
+        display: block;
+        color: #8c8c8c;
+        font-size: 16px;
+    }
+
+    .sb-cata-list li span {
+        float: right;
+        display: inline-block;
+        min-width: 25px;
+        height: 25px;
+        font-size: 11px;
+        color: #1c1c1c;
+        border-radius: 35px;
+        background: #fff;
+        text-align: center;
+        padding: 5px 5px 0;
+    }
+
+    .sb-cata-list li:nth-child(1) span {
+        background: #10ddb4;
+    }
+
+    .sb-cata-list li:nth-child(2) span {
+        background: #ff1980;
+    }
+
+    .sb-cata-list li:nth-child(3) span {
+        background: #ffe119;
+    }
+
+    .sb-cata-list li:nth-child(4) span {
+        background: #5da9e4;
+    }
+
+    .sb-cata-list li:nth-child(5) span {
+        background: #bd9bd2;
+    }
+
+    .sb-cata-list li:nth-child(6) span {
+        background: #f89843;
+    }
+
+    .sb-cata-list li:last-child a {
+        margin-bottom: 0;
+    }
+
+    .latest-news-widget .ln-item {
+        display: block;
+        margin-bottom: 29px;
+        position: relative;
+    }
+
+    .latest-news-widget .ln-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .latest-news-widget .ln-item img {
+        width: 85px;
+        height: 85px;
+        float: left;
+        margin-right: 27px;
+    }
+
+    .latest-news-widget .ln-text {
+        overflow: hidden;
+    }
+
+    .latest-news-widget .ln-text .ln-date {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 1px 5px;
+        margin-bottom: 10px;
+        background: #10ddb4;
+    }
+
+    .latest-news-widget .ln-text h6 {
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+
+    .latest-news-widget .ln-text .ln-metas .ln-meta {
+        position: relative;
+        display: inline-block;
+        color: #8c8c8c;
+        font-size: 12px;
+        padding-right: 13px;
+        margin-right: 10px;
+        margin-bottom: 5px;
+    }
+
+    .latest-news-widget .ln-text .ln-metas .ln-meta:after {
+        position: absolute;
+        content: "|";
+        right: 0;
+        top: 0;
+        color: #8c8c8c;
+        font-size: 14px;
+    }
+
+    .latest-news-widget .ln-text .ln-metas .ln-meta:last-child {
+        margin-right: 0;
+        padding-right: 0;
+    }
+
+    .latest-news-widget .ln-text .ln-metas .ln-meta:last-child:after {
+        display: none;
+    }
+
+    .latest-news-widget .ln-text .ln-metas a {
+        color: #ffea00;
+    }
+
+    .latest-news-widget.top-five .ln-index {
+        position: absolute;
+        left: 19px;
+        top: -25px;
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+        font-weight: 700;
+        background: #10ddb4;
+        border-radius: 50%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+    .latest-news-widget.top-five .ln-item {
+        margin-bottom: 59px;
+    }
+
+    .latest-news-widget.top-five .ln-item:nth-child(1) .ln-index {
+        background: #ff5581;
+    }
+
+    .latest-news-widget.top-five .ln-item:nth-child(2) .ln-index {
+        background: #10ddb4;
+    }
+
+    .latest-news-widget.top-five .ln-item:nth-child(3) .ln-index {
+        background: #5da9e4;
+    }
+
+    .latest-news-widget.top-five .ln-item:nth-child(4) .ln-index {
+        background: #ffe119;
+    }
+
+    .latest-news-widget.top-five .ln-item:nth-child(5) .ln-index {
+        background: #bd9bd2;
+    }
+
+    .latest-news-widget.top-five .ln-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .latest-comments-widget .lc-item {
+        margin-bottom: 23px;
+    }
+
+    .latest-comments-widget .lc-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .latest-comments-widget .lc-item img {
+        float: left;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        margin-right: 24px;
+    }
+
+    .latest-comments-widget .lc-text {
+        overflow: hidden;
+    }
+
+    .latest-comments-widget .lc-text h6 {
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 8px;
+    }
+
+    .latest-comments-widget .lc-text span {
+        color: #8c8c8c;
+        font-size: 14px;
+        font-weight: 400;
+        display: inline-block;
+        padding: 0 5px;
+    }
+
+    .latest-comments-widget .lc-text a {
+        color: #10ddb4;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .latest-comments-widget .lc-date {
+        color: #a5a4a4;
+        font-weight: 700;
+        font-size: 12px;
+    }
+</style>
+
+<div class="foot-nav">
+    <div class="container">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="contact.html">Contactos</a></li>
+            <li><a href="terms.html">Términos y condiciones</a></li>
+            <li><a href="policy.html">Política de privacidad</a></li>
+            <div class="clearfix"></div>
+        </ul>
+    </div>
+</div>
+
+<div class="copyright">
+    <div class="container">
+        <p>©All rights reserved</p>
+    </div>
+</div>
+
+<style>
+    .foot-nav ul li {
+        display: inline-block;
+        float: left;
+    }
+
+    .foot-nav li a {
+        color: #fff;
+        font-size: 1em;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    .foot-nav {
+        background: #fa4b2a;
+    }
+
+    .foot-nav ul {
+        margin: 0;
+        padding: 0.65em 0;
+    }
+
+    .foot-nav li a {
+        color: #fff;
+        font-size: 0.95em;
+        padding: 0.7em 1.5em;
+        text-decoration: none;
+        font-weight: 500;
+        text-transform: uppercase;
+        border-right: 1px solid rgba(255, 255, 255, 0.32) ! important;
+    }
+
+    .copyright {
+        background: #fece14;
+        padding: 1em 0;
+        text-align: center;
+    }
+
+    .copyright p {
+        margin-bottom: 0;
+    }
+</style>
